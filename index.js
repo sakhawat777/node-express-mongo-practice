@@ -1,5 +1,7 @@
 const express = require('express');
+var cors = require('cors');
 const app = express();
+app.use(cors());
 const users = ['Sakhawat', 'Biplob', 'Tina', 'Rocky', 'Bina'];
 // Root API and call back function
 app.get('/', (req, res) => {
