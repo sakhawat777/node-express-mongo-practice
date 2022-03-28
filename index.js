@@ -1,7 +1,10 @@
 const express = require('express');
-var cors = require('cors');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const app = express();
 app.use(cors());
+// parse application/json
+app.use(bodyParser.json());
 const users = ['Sakhawat', 'Biplob', 'Tina', 'Rocky', 'Bina'];
 // Root API and call back function
 app.get('/', (req, res) => {
@@ -12,6 +15,7 @@ app.get('/', (req, res) => {
 	};
 	res.send(fruit);
 });
+// get
 app.get('/fruits/banana', (req, res) => {
 	res.send({ fruit: 'banana', quantity: 1000, price: 10000 });
 });
@@ -25,4 +29,8 @@ app.get('/users/:id', (req, res) => {
 	res.send({ id, name });
 });
 
+// post
+app.post('/addUser', (req, res) => {
+	console.log(req.body);
+});
 app.listen(5000, () => console.log('Listening to port 5000'));

@@ -11,7 +11,7 @@
     <h1>My Node Mongo DB Site</h1>
     <p id="user-name"></p>
     <script>
-        fetch('http://localhost:5000/users/4')
+        fetch('http://localhost:5000/users/0')
         .then(res => res.json())
         .then (data => document.getElementById('user-name').innerText = data.name);
     </script>
